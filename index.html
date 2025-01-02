@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earning App</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">      
+</head>
+</head>
+<body>
+    
+    <!-- Loading Screen -->
+  <div id="loadingScreen">
+    <div id="logo">
+  <img src="img/image.png" alt="App Logo" id="appLogo" />
+</div>
+    <div id="progressBarContainer">
+      <div id="progressBar"></div>
+    </div>
+  </div>
+
+  <!-- Create Account Page -->
+  <div id="createAccount" style="display:none;">
+    <h2>Create Account</h2>
+    <input type="email" id="emailInput" placeholder="Enter valid email">
+    <input type="password" id="passwordInput" placeholder="Create password (min 6 chars)">
+    <button onclick="submitAccount()">Submit</button>
+  </div>
+
+  <!-- Confirmation Page -->
+  <div id="confirmAccount" style="display:none;">
+    <h2>Enter Confirmation Code</h2>
+    <input type="text" id="confirmationCode" placeholder="Enter code">
+    <button onclick="confirmAccount()">Confirm</button>
+  </div>
+
+<!-- Main Page (hidden initially) -->
+<div id="mainPage" style="display:none;">
+  <!-- Main content goes here -->
+  
+  <header>
+    <nav class="navbar">
+      <button class="cashout-btn">Cash Out</button>
+      <div class="brain-points">
+        <i class="fas fa-brain"></i>
+        <span id="points">0000</span>
+      </div>
+      <div class="nav-icons">
+        <i class="fas fa-bell" id="notificationIcon"></i>
+        <i class="fas fa-user-circle" id="userIcon"></i>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card" id="quizCard">
+      <h2>Quiz Game</h2>
+      <p>Solve and Earn</p>
+      <button onclick="startQuiz()">Start</button>
+    </div>
+    <div class="card" id="pointsCard">
+  <h2>Free Points</h2>
+  <p>Watch and Earn more points</p>
+  <button onclick="watchAd()">Watch</button>
+</div>
+  </main>
+  
+</div>
+    
+  
+
+  <!-- Quiz Game Page -->
+<div id="quizPage" style="display:none;">
+    <button id="closeQuizBtn" onclick="goBack()">Exit</button> <!-- Close Button -->
+    <h2>Quiz Game</h2>
+    <div id="questionArea"></div>
+    <input type="number" id="answer" placeholder="Enter your answer" />
+    <button id="submitBtn" onclick="submitAnswer()" disabled>Submit</button>
+    <div id="levelStatus"></div>
+</div>
+
+<!-- Cash Out Page -->
+<div id="cashOutPage" style="display: none;">
+  <button id="closeCashOut" onclick="closeCashOutPage()">Back</button>
+  <h2>Your Balance</h2>
+  <div>
+    <p>Brain Point Balance: <span id="brainPointBalance">0000</span></p>
+    <p>USD Equivalent: $<span id="usdEquivalent">0.00</span></p>
+  </div>
+  <div id="pointsCards">
+    <div class="pointCard" data-points="10000">
+      <p>10000 Points</p>
+      <p>USD Equivalent: $<span class="usdAmount">0.33</span></p>
+    </div>
+    <div class="pointCard" data-points="30000">
+      <p>30000 Points</p>
+      <p>USD Equivalent: $<span class="usdAmount">1.00</span></p>
+    </div>
+    <div class="pointCard" data-points="50000">
+      <p>50000 Points</p>
+      <p>USD Equivalent: $<span class="usdAmount">1.67</span></p>
+    </div>
+    <div class="pointCard" data-points="60000">
+      <p>60000 Points</p>
+      <p>USD Equivalent: $<span class="usdAmount">2.00</span></p>
+    </div>
+  </div>
+  <div>
+    <label for="paypalEmail">Enter PayPal Email:</label>
+    <input type="email" id="paypalEmail" placeholder="Enter PayPal email">
+  </div>
+  <button id="payPalBtn" onclick="processPayment()" disabled>Cash Out via PayPal</button>
+</div>
+
+<!-- Notification Pop-Up Page -->
+<div id="notificationPage" style="display: none;">
+  <div id="notificationContent">
+    <button id="closeNotification">Back</button>
+    <h2>Notifications</h2>
+    <div id="notificationMessages"></div>
+  </div>
+</div>
+
+<!-- User icon Page Pop-Up -->
+<div id="userPage" style="display:none;">
+  <div id="userProfileContent">
+    <button id="closeUserPage" onclick="closeUserPage()">Back</button>
+    <div id="profileAvatar"></div>
+    <h2 id="userName">Username</h2>
+    <p id="userEmail">user@example.com</p>
+
+    <h3>Quick Links</h3>
+    <ul>
+      <!-- <li><a href="#">Help Center</a></li> -->
+      <li><a href="#" onclick="showPrivacyPolicy()">Privacy and Policy</a></li>
+      <li><a href="#" onclick="copyLink()">Share</a></li>
+    </ul>
+
+    <button id="logoutBtn" onclick="logout()">Log Out</button>
+  </div>
+  
+
+  <!-- Privacy and Policy Modal -->
+  <div id="privacyPolicy" style="display:none;">
+    <div class="privacy-content">
+      <h3>Privacy and Policy</h3>
+      <p>We value your privacy. This is where the content of the privacy policy will go...</p>
+      <button onclick="closePrivacyPolicy()">Close</button>
+    </div>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+  <script>
+  if (!navigator.onLine) {
+    document.body.innerHTML = '<h1 style="text-align: center; color: red;">This app requires an internet connection to function.</h1>';
+  }
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then((registration) => {
+        console.log('Service Worker registered with scope:', registration.scope);
+      })
+      .catch((error) => {
+        console.log('Service Worker registration failed:', error);
+      });
+  }
+</script>
+</body>
+</html>

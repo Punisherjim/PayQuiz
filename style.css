@@ -1,0 +1,463 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+header {
+  background-color: #007bff;
+  padding: 10px 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cashout-btn {
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.brain-points {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
+}
+
+.brain-points i {
+  margin-right: 8px;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 15px;
+  color: #fff;
+  font-size: 20px;
+}
+
+main {
+  padding: 20px;
+}
+
+.card {
+  background-color: #fff;
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card h2 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.card button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Main Quiz Page */
+#quizPage {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  z-index: 1000;
+}
+
+#quizPage h2 {
+  margin-bottom: 20px;
+}
+
+/* Close Button */
+#closeQuizBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Question Area */
+#questionArea {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Answer Input */
+#answer {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Submit Button */
+#submitBtn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: #50a3a4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: not-allowed; /* Initially disabled */
+}
+
+#submitBtn:enabled {
+  cursor: pointer;
+  background: #4c8e8f;
+}
+
+#submitBtn:hover:enabled {
+  background: #3e7b7e;
+}
+
+/* Level Status */
+#levelStatus {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+/* Notification Icon Page */
+#notificationPage {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 1000;
+}
+
+#notificationContent {
+  padding: 20px;
+}
+
+#closeNotification {
+  background-color: green;
+  color: blue;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 5px;
+}
+
+#notificationMessages {
+  margin-top: 20px;
+}
+
+#notificationMessages .message {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+#notificationMessages .new {
+  background-color: #ffecb3; /* Highlighted for new messages */
+}
+
+/* User Icon Page */
+#userPage {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 1000;
+  padding: 20px;
+}
+
+#profileAvatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+#logoutBtn {
+  background-color: #50a3a4;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#closeUserPage {
+  background-color: green;
+  color: blue;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+#userProfileContent {
+  text-align: center;
+  padding: 20px;
+}
+
+#profileAvatar {
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 10px auto;
+}
+
+h2, p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+#userPage ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#userPage ul li {
+  margin: 10px 0;
+}
+
+#userPage ul li a {
+  text-decoration: none;
+  color: #007bff;
+  cursor: pointer;
+}
+
+#userPage ul li a:hover {
+  color: #0056b3;
+}
+
+#privacyPolicy {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.privacy-content {
+  background-color: white;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.privacy-content h3 {
+  margin-bottom: 20px;
+}
+
+.privacy-content button {
+  background-color: green;
+  color: blue;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.privacy-content button:hover {
+  background-color: #0056b3;
+}
+
+/* Cash Out Page */
+#cashOutPage {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 1000;
+  padding: 20px;
+  text-align: center;
+}
+
+#closeCashOut {
+  background-color: green;
+  color: blue;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+#pointsCards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.pointCard {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.pointCard.selected {
+  border-color: green;
+}
+
+/* Loading Screen */
+/* Loading screen */
+#loadingScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+#appLogo {
+  width: 100px; /* Adjust the size as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+#progressBarContainer {
+  width: 80%;
+  height: 10px;
+  background: #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#progressBar {
+  width: 0;
+  height: 100%;
+  background: #4caf50;
+  transition: width 0.1s;
+}
+
+/* Account creation and confirmation */
+input {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 80%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#createAccount {
+    text-align: center;
+    margin: 40px auto;
+}
+
+#createAccount button {
+    background-color: green;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    margin-top: 30px;
+}
+
+#confirmAccount {
+    text-align: center;
+    margin: 50px auto;
+}
+
+#confirmAccount button {
+    background-color: green;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    margin-top: 30px;
+}
